@@ -76,6 +76,7 @@ var Application = function(id) {
 
 			self.scene.add(self.world);
 
+			// finally add the renderer and create the clock
 			self.canvas.appendChild(self.renderer.domElement);
 			self.clock = new THREE.Clock();
 			return true;
@@ -109,7 +110,7 @@ var Application = function(id) {
 	};
 
 	self.loop = function() {
-		// render loop:
+		// application loop:
 		//   request animation frame,
 		//   get time delta,
 		//   update scene and draw scene
@@ -162,7 +163,7 @@ var Application = function(id) {
 
 	self.init = function() {
 		// Application object "constructor", add here any app initialization
-		// that is webgl independent
+		// that is webgl independent (ie set event listeners)
 		document.addEventListener("keydown", self.key_down, false);
 		document.addEventListener("keyup", self.key_up, false);
 	};
