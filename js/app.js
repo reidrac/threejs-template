@@ -36,8 +36,6 @@ var Application = function(id) {
 		width : 640,
 		height : 480,
 
-		fps : 60.0,
-
 		keys: {
 			up : false,
 			down : false,
@@ -49,6 +47,7 @@ var Application = function(id) {
 	};
 
 	self.setup = function() {
+		// setup the scene
 		self.canvas = document.getElementById(self.id);
 		// detect webgl support
 		if (window.WebGLRenderingContext) {
@@ -113,7 +112,7 @@ var Application = function(id) {
 		// application loop:
 		//   request animation frame,
 		//   get time delta,
-		//   update scene and draw scene
+		//   update and draw the scene
 		requestAnimationFrame(self.loop);
 		var dt = self.clock.getDelta();
 		self.update(dt);
@@ -162,7 +161,7 @@ var Application = function(id) {
 	};
 
 	self.init = function() {
-		// Application object "constructor", add here any app initialization
+		// Application object constructor, add here any app initialization
 		// that is webgl independent (ie set event listeners)
 		document.addEventListener("keydown", self.key_down, false);
 		document.addEventListener("keyup", self.key_up, false);
@@ -176,5 +175,4 @@ window.onload = function () {
 	var app = Application("target");
 	app.run();
 };
-
 
